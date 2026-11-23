@@ -4,7 +4,7 @@
 
 手机端无需安装 App，也无需开启 USB 调试。界面支持简体中文与英文、浅色与深色，界面上的话是“让文件，轻松靠岸”。界面使用 SwiftUI，USB/MTP 在独立进程中运行。
 
-> **当前为 0.1.0 本地预览版**，面向 macOS 14+。应用为本地签名，没有 Developer ID，也没有 Apple 公证。设备兼容性与测试范围见[验证状态](docs/validation.md)。
+> **当前为 0.0.1 本地预览版**，面向 macOS 14+。应用为本地签名，没有 Developer ID，也没有 Apple 公证。设备兼容性与测试范围见[验证状态](docs/validation.md)。
 
 [想做什么](#想做什么) · [快速开始](#快速开始) · [使用指南](docs/usage.md) · [常见问题](#常见问题) · [开发与贡献](#开发与贡献)
 
@@ -34,7 +34,7 @@
 
 ## 快速开始
 
-推送与 `Resources/Info.plist` 一致的版本标签后，GitHub Actions 会在 Apple Silicon 的 macOS 运行器上测试并发布预览包。当前版本对应标签 `v0.1.0`。发布页附带 ZIP、libusb 完整源码包和 `SHA256SUMS`。包是本地签名，没有 Developer ID，也没有 Apple 公证。发布出现之前，按下面的步骤从源码构建。
+推送与 `Resources/Info.plist` 一致的版本标签后，GitHub Actions 会在 Apple Silicon 的 macOS 运行器上测试并发布预览包。当前版本对应标签 `v0.0.1`。发布页附带 ZIP、libusb 完整源码包和 `SHA256SUMS`。包是本地签名，没有 Developer ID，也没有 Apple 公证。发布出现之前，按下面的步骤从源码构建。
 
 ### 1. 从源码构建
 
@@ -128,7 +128,7 @@ exFAT 的额外复制与临时空间、筛选规则、预览格式和清理方�
 
 测试构建目录可通过 `FERRY_TEST_BUILD_DIR` 指定；打包支持 `FERRY_BUILD_DIR` 和 `FERRY_DIST_DIR`。调试可用 `FERRY_ENGINE_PATH` 指定 helper，`FERRY_DEMO=1` 强制使用演示设备。
 
-推送到 `main` 和拉取请求时会运行验证与构建。`v*` 标签会另外发布预览包，标签必须与 `Resources/Info.plist` 的版本一致，例如 `v0.1.0`。发布运行器是 `macos-15`（Apple Silicon），产物为 ZIP、libusb 完整源码包和 `SHA256SUMS`。
+推送到 `main` 和拉取请求时会运行验证与构建。`v*` 标签会另外发布预览包，标签必须与 `Resources/Info.plist` 的版本一致，例如 `v0.0.1`。发布运行器是 `macos-15`（Apple Silicon），产物为 ZIP、libusb 完整源码包和 `SHA256SUMS`。
 
 ## 许可证
 
