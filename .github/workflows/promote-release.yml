@@ -1,0 +1,31 @@
+name: 标为正式版
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/promote-release.yml
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取消 v0.0.1 的预发布标记
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data } = await github.rest.repos.getReleaseByTag({
+              owner,
+              repo,
+              tag: "v0.0.1",
+            })
+            await github.rest.repos.updateRelease({
+              owner,
+              repo,
+              release_id: data.id,
+              prerelease: false,
+              draft: false,
+              make_latest: "true",
+            })
+            core.info(`promoted ${data.tag_name}`)
