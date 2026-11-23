@@ -1,0 +1,27 @@
+.DS_Store
+.build/
+.cache/
+dist/
+.swiftpm/
+*.xcuserstate
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.provisionprofile
+
+# Device diagnostics and private transfer output
+*.log
+*.pcap
+*.pcapng
+*.trace
+传输报告.json
+任务记录.ndjson
+Ferry-media-*/
+ferry-auth-*/

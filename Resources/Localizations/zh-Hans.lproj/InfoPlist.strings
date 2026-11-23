@@ -1,0 +1,6 @@
+"CFBundleName" = "渡舟";
+"CFBundleDisplayName" = "渡舟";
+"NSDownloadsFolderUsageDescription" = "渡舟需要将您选择的手机文件保存到下载文件夹。";
+"NSDocumentsFolderUsageDescription" = "渡舟需要将您选择的手机文件保存到文稿文件夹。";
+"NSDesktopFolderUsageDescription" = "渡舟需要将您选择的手机文件保存到桌面。";
+"NSRemovableVolumesUsageDescription" = "渡舟需要将您选择的手机文件保存到外置磁盘。";

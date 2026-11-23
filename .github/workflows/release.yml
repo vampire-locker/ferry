@@ -1,0 +1,50 @@
+name: 发布预览包
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: engine/go.mod
+      - name: 校验版本
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          version=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' Resources/Info.plist)
+          test "$RELEASE_TAG" = "v$version"
+      - name: 准备构建工具
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+          HOMEBREW_NO_ENV_HINTS: 1
+        run: command -v pkg-config || brew install pkg-config
+      - run: ./scripts/test.sh
+      - run: ./scripts/build-app.sh
+      - name: 核对发布文件
+        run: |
+          test -n "$(find dist -name 'Ferry-*-macos-*-local.zip' -print -quit)"
+          test -f dist/libusb-1.0.29-source.tar.bz2
+          test -f dist/SHA256SUMS
+          cat dist/SHA256SUMS
+      - uses: softprops/action-gh-release@v2
+        with:
+          prerelease: true
+          fail_on_unmatched_files: true
+          name: 渡舟 ${{ github.ref_name }} 本地预览
+          body: |
+            本地签名预览包，面向 macOS 14 及以上。
+
+            这次构建在 GitHub 托管的 Apple Silicon（macos-15）运行器上完成。没有 Developer ID，也没有 Apple 公证。macOS 可能拦截未公证应用，请按系统提示处理。
+
+            压缩包内是 Ferry.app。同一次发布附带的 libusb 源码包用于满足 LGPL-2.1-or-later。请用 SHA256SUMS 核对下载文件。
+
+            手机端只读。使用范围和验证边界见 README 与 docs/validation.md。
+          files: |
+            dist/*.zip
+            dist/*source.tar.bz2
+            dist/SHA256SUMS

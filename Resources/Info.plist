@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>local.ferry.app</string>
+<key>CFBundleIconFile</key><string>AppIcon</string>
+<key>CFBundleName</key><string>渡舟</string>
+<key>CFBundleDisplayName</key><string>渡舟</string>
+<key>CFBundleExecutable</key><string>Ferry</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>0.1.3</string>
+<key>CFBundleVersion</key><string>4</string>
+<key>CFBundleDevelopmentRegion</key><string>zh-Hans</string>
+<key>CFBundleLocalizations</key><array><string>zh-Hans</string><string>en</string></array>
+<key>LSMinimumSystemVersion</key><string>14.0</string>
+<key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
+<key>NSHighResolutionCapable</key><true/>
+<key>NSDownloadsFolderUsageDescription</key><string>渡舟需要将您选择的手机文件保存到下载文件夹。</string>
+<key>NSDocumentsFolderUsageDescription</key><string>渡舟需要将您选择的手机文件保存到文稿文件夹。</string>
+<key>NSDesktopFolderUsageDescription</key><string>渡舟需要将您选择的手机文件保存到桌面。</string>
+<key>NSRemovableVolumesUsageDescription</key><string>渡舟需要将您选择的手机文件保存到外置磁盘。</string>
+</dict></plist>

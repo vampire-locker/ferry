@@ -1,0 +1,31 @@
+name: 验证与构建
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: engine/go.mod
+      - name: 准备构建工具
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+          HOMEBREW_NO_ENV_HINTS: 1
+        run: command -v pkg-config || brew install pkg-config
+      - name: 测试
+        run: ./scripts/test.sh
+      - name: 构建本地预览包
+        run: ./scripts/build-app.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Ferry-local-preview
+          path: |
+            dist/*.zip
+            dist/*source.tar.bz2
+            dist/SHA256SUMS

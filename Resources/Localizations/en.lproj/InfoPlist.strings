@@ -1,0 +1,6 @@
+"CFBundleName" = "Ferry";
+"CFBundleDisplayName" = "Ferry";
+"NSDownloadsFolderUsageDescription" = "Ferry saves the phone files you select to your Downloads folder.";
+"NSDocumentsFolderUsageDescription" = "Ferry saves the phone files you select to your Documents folder.";
+"NSDesktopFolderUsageDescription" = "Ferry saves the phone files you select to your Desktop.";
+"NSRemovableVolumesUsageDescription" = "Ferry saves the phone files you select to an external disk.";
